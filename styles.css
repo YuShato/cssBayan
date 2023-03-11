@@ -1,8 +1,12 @@
-.transition, ul li i:before, ul li i:after, label {
+.transition, 
+ul li div > i,
+label,
+i,
+div {
     transition: all 0.25s ease-in-out;
   }
   
-  .flipIn, ul li, h1 {
+  .flipIn, ul li, h1, div, i {
     animation: flipdown 0.5s ease both;
   }
   
@@ -28,15 +32,11 @@
   
   body {
     min-height: 0;
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    margin: 10vh 0;
-    transform: translate(-50%, 0);
     box-shadow: 0 0.6rem 0 0 #774c80 inset;
     background-color: #fefffa;
     max-width: 50vw;
     padding: 1vh;
+    margin-inline: auto;
   }
 
 
@@ -72,10 +72,9 @@
 
   label {
     cursor: pointer;
-    position: relative;
     overflow: hidden;
     max-width: 100%;
-    max-height: 20rem;
+    max-height: 100%;
     opacity: 1;
     transform: translate(0, 0);
     margin-top: 0.5rem;
@@ -91,7 +90,6 @@
   }
 
   ul li {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -115,32 +113,19 @@
     animation-delay: 1s;
   }
 
+  ul li:nth-of-type(4) {
+    animation-delay: 1.25s;
+  }
+
   ul li:last-of-type {
     padding-bottom: 0;
   }
 
   ul li i {
-    position: absolute;
-    transform: translate(-0.5rem, 0);
-    margin-top: 1rem;
-    right: 0;
-  }
-
-  ul li i:before, ul li i:after {
-    position: absolute;
-    content: ' ';
+    width: 1rem;
     height: 1rem;
-    width: 0.05rem;
-    background-color:  #460c32;
   }
 
-  ul li i:before {
-    transform: rotate(45deg);
-  }
-
-  ul li i:after {
-    transform: rotate(-45deg);  
-  }
 
   ul li input[type=radio] {
     position: absolute;
@@ -151,6 +136,14 @@
     opacity: 0;
   }
 
+  ul li div {
+    display: grid;
+    grid-template-columns: 1fr 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
 
   ul li input[type=radio]:not(:checked) ~ label {
     margin-top: 0.5rem;
@@ -159,14 +152,20 @@
     transform: translate(0, 50%);
   }
 
-  ul li input[type=radio]:not(:checked) ~ i:before {
-    transform: rotate(180deg);
+  ul li input[type=radio]:checked ~ div > i  {
+        transform: rotate(-130deg) !important;
   }
 
-  ul li input[type=radio]:not(:checked) ~ i:after {
-    transform: rotate(270deg);
+  ul li:hover input[type=radio] ~ div > i  {
+
+    color: rgb(62, 32, 146);
+    transition: 0.3s all;
   }
 
+  ul li:hover div > i {
+    transition: 0.3s all;
+    transform: rotate(-130deg) !important;
+  }
 
 
   @media (hover: hover) {
@@ -177,18 +176,18 @@
 
     ul li:hover input[type=radio]:not(:checked) ~ label  {
         margin-top: 0;
-        max-height: 20rem;
+        max-height: 100%;
         opacity: 1;
         transform: translate(0, 0);
+        animation: slide-bottom 1s linear 0s 1 normal none;
       }
 
-      ul li:hover input[type=radio] ~ i:before {
-        transform: rotate(45deg);
+
+    ul li:not(:hover )input[type=radio] ~ label  {
+        animation: shutter-out-top 1s linear 0s 1 normal none;
       }
+
     
-      ul li:hover input[type=radio] ~ i:after {
-        transform: rotate(-45deg);
-      }
 
       ul li input[type=radio]:checked ~ label:active {
         opacity: 0.7;
@@ -211,14 +210,15 @@
     }
   }
 
+
+
   @media (max-width: 550px) {
     body {
       box-sizing: border-box;
-      transform: translate(0, 0);
       max-width: 94%;
       min-height: 100%;
       margin: 0;
-      left: 3%;
+      margin-left: 3%;
     }
 
     img {
@@ -231,6 +231,7 @@
         font-size: 0.8rem;
     }
   }
+  
 
   @keyframes flipdown {
     0% {
@@ -255,3 +256,41 @@
       transform: rotateX(0deg);
     }
   }
+
+  @keyframes slide-bottom {
+    0% {
+        transform:rotateX(-100deg);
+        transform-origin:top;
+        opacity:0;
+    }
+    100% {
+        transform:rotateX(0deg);
+        transform-origin:top;
+        opacity:1;
+    }
+}
+
+@keyframes shutter-out-top {
+    0% {
+        transform:rotateX(0deg);
+        transform-origin:top;
+        opacity:1;
+    }
+    100% {
+        transform:rotateX(70deg);
+        transform-origin:top;
+        opacity:0;
+    }
+}
+
+@keyframes rotate-in-center {
+			
+    0% {
+        transform:rotate(-360deg);
+        opacity:0;
+    }
+    100% {
+        transform:rotate(0);
+        opacity:1;
+    }
+}
