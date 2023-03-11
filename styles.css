@@ -1,4 +1,4 @@
-.transition, ul li i:before, ul li i:after, img {
+.transition, ul li i:before, ul li i:after, label {
     transition: all 0.25s ease-in-out;
   }
   
@@ -79,7 +79,7 @@
     background-color: #fefffa;
   }
 
-  img {
+  label {
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -100,6 +100,10 @@
 
   ul li {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     padding: 0;
     margin: 0;
     padding-bottom: 0.5rem;
@@ -146,7 +150,7 @@
     transform: rotate(-45deg);  
   }
 
-  ul li input[type=checkbox] {
+  ul li input[type=radio] {
     position: absolute;
     cursor: pointer;
     width: 100%;
@@ -155,39 +159,53 @@
     opacity: 0;
   }
 
-  ul li input[type=checkbox]:checked ~ img {
-    margin-top: 0;
+
+  ul li input[type=radio]:not(:checked) ~ label {
+    margin-top: 0.5rem;
     max-height: 0;
     opacity: 0;
     transform: translate(0, 50%);
   }
 
-  ul li input[type=checkbox]:checked ~ i:before {
+  ul li input[type=radio]:not(:checked) ~ i:before {
     transform: rotate(180deg);
   }
 
-  ul li input[type=checkbox]:checked ~ i:after {
+  ul li input[type=radio]:not(:checked) ~ i:after {
     transform: rotate(270deg);
   }
 
-  @media (hover: hover) {
 
+
+  @media (hover: hover) {
     body:hover h1,
     body:hover h2 {
       color: #a248c7;
     }
-  
-    ul li:hover input[type=checkbox]:checked ~ img  {
+
+    ul li:hover input[type=radio]:not(:checked) ~ label  {
         margin-top: 0;
         max-height: 20rem;
         opacity: 1;
         transform: translate(0, 0);
       }
 
-      ul li input[type=checkbox]:checked ~ img:active {
+      ul li:hover input[type=radio] ~ i:before {
+        transform: rotate(45deg);
+      }
+    
+      ul li:hover input[type=radio] ~ i:after {
+        transform: rotate(-45deg);
+      }
+
+      ul li input[type=radio]:checked ~ label:active {
         opacity: 0.7;
         transition: 0.2s opacity;
       }
+  }
+
+  ul li:has( input[type=radio]:checked)  >  h2 {
+    color: rgb(53, 112, 180);
   }
 
   @keyframes flipdown {
