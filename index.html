@@ -6,66 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>CSS Bayan | YuShato</title>
-    <script src="https://kit.fontawesome.com/bd8680c190.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/bd8680c190.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1>Как программист создавал мир</h1>
-    <ul>
-      <li>
-        <input type="radio" checked name="bayan" id="slide1" />
-        <div>
-          <h2>
-            <span>Шаг первый.</span> Программирование похоже на секс: одна
-            ошибка – и всю жизнь придется поддерживать.
-          </h2>
-          <i class="fa fa-cross"></i>
-        </div>
-        <label for="slide1">
+    <ul class="accordion list">
+      <li class="list__item">
+        <label for="item1" class="list__label">
+          <input type="radio" name="accordion" id="item1" checked />
+          <div class="list__header">
+            <h2>
+              <span>Шаг первый.</span> Программирование похоже на секс: одна
+              ошибка – и всю жизнь придется поддерживать.
+            </h2>
+            <span class="open">🙈</span>
+            <span class="close">🙊</span>
+          </div>
           <img src="./assets/1.jpg" width="400" height="400" />
         </label>
       </li>
 
-      <li>
-        <input type="radio" name="bayan" id="slide2" />
-        <div>
-          <h2>
-            <span>Шаг второй.</span> Бог сумел создать целый мир всего за 6 дней
-            по единственной причине – у него не было предыдущих версий и проблем
-            совместимости.
-          </h2>
-          <i class="fa fa-cross"></i>
-        </div>
-        <label for="slide2">
-          <img src="./assets/2.jpg" width="400" height="400" />
+      <li class="list__item">
+        <label for="item2" class="list__label">
+          <input type="radio" name="accordion" id="item2" />
+          <div class="list__header">
+            <h2>
+              <span>Шаг второй.</span> Бог сумел создать целый мир всего за 6
+              дней по единственной причине – у него не было предыдущих версий и
+              проблем совместимости.
+            </h2>
+            <span class="open">🙈</span>
+            <span class="close">🙊</span>
+          </div>
+          <img src="./assets/1.jpg" width="400" height="400" />
         </label>
       </li>
 
-      <li>
-        <input type="radio" name="bayan" id="slide3" />
-        <div>
-          <h2>
-            <span>Шаг третий.</span> На самом деле большинство багов – это фичи,
-            просто не задокументированные
-          </h2>
-          <i class="fa fa-cross"></i>
-        </div>
-        <label for="slide3">
+      <li class="list__item">
+        <label for="item3" class="list__label">
+          <input type="radio" name="accordion" id="item3" />
+          <div class="list__header">
+            <h2>
+              <span>Шаг третий.</span> На самом деле большинство багов – это
+              фичи, просто не задокументированные
+            </h2>
+            <span class="open">🙈</span>
+            <span class="close">🙊</span>
+          </div>
           <img src="./assets/3.jpg" width="400" height="400" />
         </label>
       </li>
 
-      <li>
-        <input type="radio" name="bayan" id="slide4" />
-        <div>
-          <h2>
-            <span>Вывод:</span> Никогда не пишите на пределе своих талантов!
-            Помните: отладка – всегда в два раза сложнее написания кода. И если
-            вы напишете настолько умно, насколько способны, отладить его вы уже
-            не сумеете.
-          </h2>
-          <i class="fa fa-cross"></i>
-        </div>
-        <label for="slide4">
+      <li class="list__item">
+        <label for="item4" class="list__label">
+          <input type="radio" name="accordion" id="item4" />
+          <div class="list__header">
+            <h2>
+              <span>Вывод:</span> Никогда не пишите на пределе своих талантов!
+              Помните: отладка – всегда в два раза сложнее написания кода. И
+              если вы напишете настолько умно, насколько способны, отладить его
+              вы уже не сумеете.
+            </h2>
+            <span class="open">🙈</span>
+            <span class="close">🙊</span>
+          </div>
           <img src="./assets/4.jpg" width="400" height="400" />
         </label>
       </li>
